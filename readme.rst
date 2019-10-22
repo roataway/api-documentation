@@ -150,3 +150,11 @@ You can use any MQTT client to subscribe to the topics above and see the live da
 
 - ``mosquitto_sub -h example.com -t telemetry/transport/+`` - receive raw telemetry
 - ``mosquitto_sub -h example.com -t telemetry/route/+`` - receive route-centric telemetry
+
+
+
+References
+==========
+
+- MQTT libraries for different `programming languages <https://www.eclipse.org/paho/downloads.php>`_.
+- Reference implementation that visualizes the `vehicles on a map <https://roataway.netlify.com/>`_.
