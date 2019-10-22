@@ -135,14 +135,17 @@ Example::
 	 "rtu_id": "0000019",
 	 "route": 3}
 
-.. note::  If a vehicle is moved from one route to another, its telemetry will be automatically distributed via a topic that corresponds to the new route.
+.. note::
+
+	- If a vehicle is moved from one route to another, its telemetry will be automatically distributed via a topic that corresponds to the new route.
+	- You can subscribe to individual routes, by using their id in the topic name, e.g., ``telemetry/route/1``.
 
 .. warning::  The payloads may contain other, undocumented keys - don't count on them.
 
 Give it a try
 =============
 
-You can use any MQTT client to subscribe to the topics above and see the live data. In these examples we shall use ``mosquitto_sub``, distributed with the Mosquitto broker. On Debian-based systems you can install it with ``sudo apt install mosquitto-clients``.
+You can use any MQTT client to subscribe to the topics above and see the live data. In these examples we shall use ``mosquitto_sub``, distributed with the Mosquitto broker. On Debian-based systems you can install it with ``sudo apt install mosquitto-clients``. Here's how to run it:
 
 
 - ``mosquitto_sub -h example.com -t telemetry/transport/+`` - receive raw telemetry
