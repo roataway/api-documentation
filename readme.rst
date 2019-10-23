@@ -148,10 +148,16 @@ Give it a try
 You can use any MQTT client to subscribe to the topics above and see the live data. In these examples we shall use ``mosquitto_sub``, distributed with the Mosquitto broker. On Debian-based systems you can install it with ``sudo apt install mosquitto-clients``. Here's how to run it:
 
 
-- ``mosquitto_sub -h example.com -t telemetry/transport/+`` - receive raw telemetry
-- ``mosquitto_sub -h example.com -t telemetry/route/+`` - receive route-centric telemetry
+- ``mosquitto_sub -h opendata.dekart.com -p 1945 -t telemetry/transport/+`` - receive raw telemetry
+- ``mosquitto_sub -h opendata.dekart.com -p 1945 -t telemetry/route/+`` - receive route-centric telemetry
+
+You can also try ``opendata.dekart.com:1946`` for MQTT over plaintext websockets.
 
 
+Credits
+=======
+
+We thank `Dekart <https://dekart.com>`_ for designing a system based on non-proprietary protocols and for opening it up to the public.
 
 References
 ==========
