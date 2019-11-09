@@ -1,0 +1,98 @@
+{ 
+   "$schema":"http://json-schema.org/draft-07/schema#",
+   "$id":"http://roataway.md/schema/routeTelemetry.json",
+   "type":"object",
+   "title":"Route-centric vehicle telemetry schema",
+   "required":[ 
+      "longitude",
+      "latitude",
+      "timestamp",
+      "speed",
+      "direction"
+   ],
+   "properties":{ 
+      "longitude":{ 
+         "$id":"#/properties/longitude",
+         "type":"number",
+         "minimum":-180.0,
+         "maximum":180.0,
+         "title":"Longitude",
+         "examples":[ 
+            28.887143
+         ]
+      },
+      "latitude":{ 
+         "$id":"#/properties/latitude",
+         "type":"number",
+         "minimum":-90.0,
+         "maximum":90.0,
+         "title":"Latitude",
+         "examples":[ 
+            47.026044
+         ]
+      },
+      "timestamp":{ 
+         "$id":"#/properties/timestamp",
+         "type":"string",
+         "format":"date-time",
+         "title":"Timestamp",
+         "description":"Format ISO 8601, YYYY-MM-DDTHH:MM:SSZ",
+         "examples":[ 
+            "2019-08-18T16:42:29Z"
+         ],
+         "pattern":"^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}Z$"
+      },
+      "speed":{ 
+         "$id":"#/properties/speed",
+         "type":"integer",
+         "minimum":0,
+         "maximum":200,
+         "title":"Speed km/h",
+         "examples":[ 
+            0
+         ]
+      },
+      "direction":{ 
+         "$id":"#/properties/direction",
+         "type":"number",
+         "minimum":0,
+         "maximum":360,
+         "title":"Vehicle movement direction degree",
+         "examples":[ 
+            180.8
+         ]
+      },
+      "board":{ 
+         "$id":"#/properties/board",
+         "type":"string",
+         "minLength":4,
+         "maxLength":10,
+         "title":"Board identifier",
+         "description":"typically a number but can be a string",
+         "examples":[ 
+            "2181"
+         ]
+      },
+      "rtu_id":{ 
+         "$id":"#/properties/rtu_id",
+         "type":"string",
+         "minLength":3,
+         "maxLength":10,
+         "title":"Unique tracker identifier",
+         "examples":[ 
+            "0000154"
+         ]
+      },
+      "route":{ 
+         "$id":"#/properties/route",
+         "type":"string",
+         "minLength":1,
+         "maxLength":5,
+         "title":"Route",
+         "examples":[ 
+            "8",
+            "6G"
+         ]
+      }
+   }
+}
