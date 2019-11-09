@@ -110,7 +110,7 @@ This is what the payloads look like:
 | `timestamp` | str   | In UTC, e.g. `2019-08-18T16:42:29Z` the format is `%Y-%m-%dT%H:%M:%SZ` |
 | `board`     | str   | The board number of the vehicle                                        |
 | `rtu_id`    | str   | The tracker ID                                                         |
-| `route`     | int   | The route upstream ID                                                  |
+| `route`     | str   | The route name (not to be confused with `route_upstream_id`!)          |
 
 
 Example:
@@ -124,7 +124,7 @@ Example:
     "direction": 313.5,
     "board": "1308",
     "rtu_id": "0000019",
-    "route": 3
+    "route": "3"
 }
 ```
 
@@ -132,6 +132,7 @@ Note:
 
 - If a vehicle is moved from one route to another, its telemetry will be automatically distributed via a topic that corresponds to the new route.
 - You can subscribe to individual routes, by using their id in the topic name, e.g., `telemetry/route/1`.
+- `board`, `rtu_id` and `route` are usually numerical values, but they can also contain letters, treat them as strings!
 
 Warning:
 
