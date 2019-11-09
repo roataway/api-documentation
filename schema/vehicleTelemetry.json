@@ -1,0 +1,66 @@
+{ 
+   "$schema":"http://json-schema.org/draft-07/schema#",
+   "$id":"http://roataway.md/schema/vehicleTelemetry.json",
+   "type":"object",
+   "title":"Vehicle telemetry schema",
+   "required":[ 
+      "longitude",
+      "latitude",
+      "timestamp",
+      "speed",
+      "direction"
+   ],
+   "properties":{ 
+      "longitude":{ 
+         "$id":"#/properties/longitude",
+         "type":"number",
+         "minimum":-180.0,
+         "maximum":180.0,
+         "title":"Longitude",
+         "examples":[ 
+            28.887143
+         ]
+      },
+      "latitude":{ 
+         "$id":"#/properties/latitude",
+         "type":"number",
+         "minimum":-90.0,
+         "maximum":90.0,
+         "title":"Latitude",
+         "examples":[ 
+            47.026044
+         ]
+      },
+      "timestamp":{ 
+         "$id":"#/properties/timestamp",
+         "type":"string",
+         "format":"date-time",
+         "title":"Timestamp",
+         "description":"Format ISO 8601, YYYY-MM-DDTHH:MM:SSZ",
+         "examples":[ 
+            "2019-08-18T16:42:29Z"
+         ],
+         "pattern":"^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}Z$"
+      },
+      "speed":{ 
+         "$id":"#/properties/speed",
+         "type":"integer",
+         "minimum":0,
+         "maximum":200,
+         "title":"Speed km/h",
+         "examples":[ 
+            0
+         ]
+      },
+      "direction":{ 
+         "$id":"#/properties/direction",
+         "type":"number",
+         "minimum":0,
+         "maximum":360,
+         "title":"Vehicle movement direction degree",
+         "examples":[ 
+            180.8
+         ]
+      }
+   }
+}
