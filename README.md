@@ -159,4 +159,4 @@ References
 ==========
 
 - MQTT libraries for different [programming languages](https://www.eclipse.org/paho/downloads.php).
-- Reference implementation that visualizes the [vehicles on a map](https://roataway.netlify.com/).
+- Reference implementation that visualizes the [vehicles on a map](https://roataway.md).
