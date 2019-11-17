@@ -19,7 +19,7 @@ Although the requirements for the public transport tracking system did not ask f
 
 Ultimately, we want to devise a straightforward on-boarding process, that would allow stakeholders from other transport networks and cities to provide this service to their passengers with minimal investment of time and resources.
 
-Last, but not least, we want to encourage hobbyists and kids to tinker with it, just because real world data is more fun to play with!
+Last, but not least, we want to encourage hobbyists and kids to tinker with it, just because real world data is fun to play with!
 
 
 Prerequisites
@@ -173,7 +173,7 @@ If vehicles in your city already have GPS trackers and you want to feed your dat
 
 1. Contact `support at dekart dot com`, and provide details about:
     - the city you are in
-    - the name of your transportation network (e.g. "Parcul de troleibuze din Bălți" or "АТБ 6, город Оргеев")
+    - the name of your transportation network (e.g. "Parcul de troleibuze din Bălți", "АТБ 6, город Оргеев", "Hyperloop B44 din Drăsliceni")
     - the number of vehicles you monitor
     - the IP addresses from which your telemetry will be fed into the system
     - other details you consider relevant
@@ -195,13 +195,13 @@ Vehicle-route mapping
 This information is required to reduce visual noise on a map and display only vehicles from some routes, but not others. It can be transmitted into the system through a dedicated MQTT topic: `inbound/vehicleroutemapping/<peer_id>`. Other means of transport can be considered.
 
 The payload should be a JSON that contains a list of 3-element entries, each consisting of:
-- date in `%d/%m/%Y` format
+- date in `%Y-%m-%d` format
 - route name
 - board number
 
-Example: `[["2/11/2019","22","3898"],["2/11/2019","22","1289"]]`. This means that on November 2nd 2019, board 3898 is on route 22, and board 1289 is on route 22.
+Example: `[["2019-11-02","22","3898"],["2019-11-02","22","1289"]]`. This means that on November 2nd 2019, board 3898 is on route 22, and board 1289 is on route 22.
 
-- You can upload mappings for several days in advance: `[["2/11/2019","22","3898"],["3/11/2019","21","3898"],["4/11/2019","30","3898"]]`. This shows how board 3898 moves from route 22 to 21 and then 30 on different days.
+- You can upload mappings for several days in advance: `[["2019-11-02","22","3898"],["2019-11-03","21","3898"],["2019-11-04","30","3898"]]`. This shows how board 3898 moves from route 22 to 21 and then 30 on different days.
 - You can re-upload mappings if something has changed, e.g., a vehicle was moved to another route to compensate higher demands, or if another vehicle broke down, etc.
 
 
