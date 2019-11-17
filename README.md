@@ -1,6 +1,9 @@
 Overview
 ========
 
+*DOCUMENT STATUS*: this text is in an RFC phase (request for comments). Feel free to suggest changes, report inconsistencies or missing use cases. You can do so via the chat mechanism, or by opening an issue on Github.
+
+
 This guide explains how to use the API that exposes realtime location data for public transport. The highlights:
 
 - It follows the publish-subscribe pattern
@@ -104,8 +107,8 @@ Warning:
 The payloads may contain other, undocumented keys - don't count on them.
 
 
-- `telemetry/route/<consumer_group>/<city_id>/<network_id>/+`
--------------------------------------------------------------
+`telemetry/route/<consumer_group>/<city_id>/<network_id>/+`
+-----------------------------------------------------------
 
 It distributes slightly enriched telemetry, grouped by route. The last element in the topic name is the `route_upstream_id` that you will find in `routes.csv`.
 
@@ -175,8 +178,8 @@ If vehicles in your city already have GPS trackers and you want to feed your dat
     - the IP addresses from which your telemetry will be fed into the system
     - other details you consider relevant
 
-2. You will be given a `partner_id` and a set of credentials you can use to connect to the MQTT server and transmit your telemetry.
-3. Write the software that will form JSON payloads, as described above, and  publish them to `inbound/telemetry/<partner_id>`.
+2. You will be given a `peer_id` and a set of credentials you can use to connect to the MQTT server and transmit your telemetry.
+3. Write the software that will form JSON payloads, as described above, and  publish them to `inbound/telemetry/<peer_id>`.
 
 Other methods of transmission besides MQTT can be considered, if necessary.
 
@@ -189,7 +192,7 @@ In addition to the steps above, you will have to provide:
 Vehicle-route mapping
 ---------------------
 
-This information is required to show only vehicles from some routes, but not others. It can be transmitted into the system through a dedicated MQTT topic: `inbound/vehicleroutemapping/<partner_id>`. Other means of transport can be considered.
+This information is required to reduce visual noise on a map and display only vehicles from some routes, but not others. It can be transmitted into the system through a dedicated MQTT topic: `inbound/vehicleroutemapping/<peer_id>`. Other means of transport can be considered.
 
 The payload should be a JSON that contains a list of 3-element entries, each consisting of:
 - date in `%d/%m/%Y` format
