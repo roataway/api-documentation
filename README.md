@@ -163,7 +163,13 @@ You can use any MQTT client to subscribe to the topics above and see the live da
 - `mosquitto_sub -h opendata.dekart.com -p 1945 -t telemetry/transport/chiK8n/1/1/+` - receive vehicle telemetry
 - `mosquitto_sub -h opendata.dekart.com -p 1945 -t telemetry/route/chiK8n/1/1/+` - receive route-centric telemetry
 
-You can also try `opendata.dekart.com:1946` for MQTT over plaintext websockets.
+Websocket access
+----------------
+
+For convenience, the data streams can also be accessed via web-sockets, which makes it easier to use the telemetry in web applications. Use these endpoints:
+
+- `opendata.dekart.com:1946` - MQTT over plaintext websockets (test with http://www.hivemq.com/demos/websocket-client/)
+- `https://gps.dekart.com/mqtt` - MQTT over TLS websockets (test with https://www.eclipse.org/paho/clients/js/utility/)
 
 
 Feeding data into the system
