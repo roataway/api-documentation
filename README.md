@@ -139,7 +139,7 @@ Warning:
 The payloads may contain other, undocumented keys - don't count on them.
 
 
-`events/route/+`
+`event/route/+`
 ----------------
 
 This topic disseminates information about recent changes related to a particular route, for example: a vehicle was taken off the route, or added to it. These details allow displays to be updated accordingly, to provide a smooth user experience. For example, if a vehicle was taken off a particular route, an application will mark it as such.
@@ -159,6 +159,7 @@ Example that shows what happens when board `1308`, was removed from its current 
     "rtu_id": "0000019",
 }
 ```
+
 Give it a try
 =============
 
