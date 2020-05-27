@@ -138,6 +138,27 @@ Warning:
 
 The payloads may contain other, undocumented keys - don't count on them.
 
+
+`events/route/+`
+----------------
+
+This topic disseminates information about recent changes related to a particular route, for example: a vehicle was taken off the route, or added to it. These details allow displays to be updated accordingly, to provide a smooth user experience. For example, if a vehicle was taken off a particular route, an application will mark it as such.
+
+| Field       | Type  | Notes                                                                  |
+|-------------|-------|------------------------------------------------------------------------|
+| `event`     | str   | Only `remove` events are considered, new ones might be added later.    |
+| `board`     | str   | The board number of the vehicle                                        |
+| `rtu_id`    | str   | The tracker ID                                                         |
+
+Example that shows what happens when board `1308`, was removed from its current route:
+
+```json
+{
+    "event": "remove",
+    "board": "1308",
+    "rtu_id": "0000019",
+}
+```
 Give it a try
 =============
 
