@@ -88,7 +88,7 @@ Example:
 
 Warning:
 
-The payloads may contain other, undocumented keys - don't count on them.
+The payloads may contain other, undocumented keys - don't count on them. However, treat this document like an RFC and keep in mind that you can argue for the inclusion of new attributes and modifications in the protocol.
 
 
 `telemetry/route/+`
@@ -166,8 +166,9 @@ Give it a try
 You can use any MQTT client to subscribe to the topics above and see the live data. In these examples we shall use `mosquitto_sub`, distributed with the Mosquitto broker. On Debian-based systems you can install it with `sudo apt install mosquitto-clients`. Here's how to run it:
 
 
-- `mosquitto_sub -h opendata.dekart.com -p 1945 -t telemetry/transport/+` - receive raw telemetry
-- `mosquitto_sub -h opendata.dekart.com -p 1945 -t telemetry/route/+` - receive route-centric telemetry
+- `mosquitto_sub -v -h opendata.dekart.com -p 1945 -t telemetry/transport/+` - receive raw telemetry
+- `mosquitto_sub -v -h opendata.dekart.com -p 1945 -t telemetry/route/+` - receive route-centric telemetry
+- `mosquitto_sub -v -h opendata.dekart.com -p 1945 -t event/route/+` - receive notifications when a vehicle was taken off a route
 
 You can also try `opendata.dekart.com:1946` for MQTT over plaintext websockets.
 
